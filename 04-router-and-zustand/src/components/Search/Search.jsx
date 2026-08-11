@@ -1,39 +1,69 @@
+
 import { useId, useState } from "react";
 import { useSearchForm } from "../Hooks/useSearchForm";
+import { useNavigate } from "react-router";
+import styles from "./Search.module.css";
 
-export function Search({ onSearch, onTextFilter, onClearFilter, filters, initialText }) {
+export function Search({
+  onSearch,
+  onTextFilter,
+  onClearFilter,
+  filters,
+  initialText,
+  showSearchButton = false,
+}) {
   const idText = useId();
   const idTechnology = useId();
   const idLocation = useId();
   const idExperienceLevel = useId();
-  const { handleSubmit, handleTextChange} = useSearchForm({
+
+  const navigate = useNavigate();
+
+  const { handleSubmit, handleTextChange } = useSearchForm({
     idTechnology,
     idLocation,
     idExperienceLevel,
     onSearch,
     onTextFilter,
-    idText
+    idText,
   });
-  const [searchTerm, setSearchTerm] = useState('');
+
+  const [searchTerm, setSearchTerm] = useState(initialText || "");
 
   const clearInput = () => {
-    setSearchTerm('');
+    setSearchTerm("");
+
     handleTextChange({
       target: {
         name: idText,
-        value: ''
-      }
-    })
-  }
-  
+        value: "",
+      },
+    });
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    if (!searchTerm.trim()) return;
+
+    navigate(`/search?text=${encodeURIComponent(searchTerm.trim())}`);
+  };
 
   return (
-    <section className="jobs-search">
-      <h1>Encuentra tu proximo trabajo</h1>
-      <p>Explora miles de oportunidades en el sector tecnológico</p>
+    <section className={styles.jobsSearch}>
+      <h1>Encuentra tu próximo trabajo</h1>
 
-      <form onChange={handleSubmit} id="empleos-search" role="search">
-        <div className="search-bar">
+      <p>
+        Explora miles de oportunidades en el sector tecnológico
+      </p>
+
+      <form
+        onChange={handleSubmit}
+        onSubmit={handleSearch}
+        id="empleos-search"
+        role="search"
+      >
+        <div className={styles.searchBar}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -44,37 +74,53 @@ export function Search({ onSearch, onTextFilter, onClearFilter, filters, initial
             strokeWidth="1"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="icon icon-tabler icons-tabler-outline icon-tabler-search"
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path
+              stroke="none"
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 0 0 -14 0" />
             <path d="M21 21l-6 -6" />
           </svg>
 
           <input
+            className={styles.searchInput}
             name={idText}
             id="empleos-search-input"
             type="text"
             value={searchTerm}
             placeholder="Busca trabajos, empresas o habilidades"
             onChange={(e) => {
-              setSearchTerm(e.target.value);             
+              setSearchTerm(e.target.value);
               handleTextChange(e);
             }}
-            defaultValue={initialText}
           />
-          <button type="button" onClick={clearInput}>
-            X
-          </button>
-          
+
+          {showSearchButton && searchTerm.trim() && (
+            <button
+              type="submit"
+              className={styles.searchButton}
+            >
+              Buscar
+            </button>
+          )}
+
+          {searchTerm.trim() && (
+            <button
+              type="button"
+              className={styles.resetButton}
+              onClick={clearInput}
+            >
+              X
+            </button>
+          )}
         </div>
 
-        <div className="search_filters">
+        <div className={styles.searchFilters}>
           <select
             name={idTechnology}
             id="filter-technology"
-            // value={filters.technology}
-            // onChange={handleChange}
           >
             <option value="">Tecnología</option>
             <option value="javascript">JavaScript</option>
@@ -87,8 +133,6 @@ export function Search({ onSearch, onTextFilter, onClearFilter, filters, initial
           <select
             name={idLocation}
             id="filter-location"
-            // value={filters.location}
-            // onChange={handleChange}
           >
             <option value="">Ubicación</option>
             <option value="remoto">Remoto</option>
@@ -101,8 +145,6 @@ export function Search({ onSearch, onTextFilter, onClearFilter, filters, initial
           <select
             name={idExperienceLevel}
             id="experience-level"
-            // value={filters.experience}
-            // onChange={handleChange}
           >
             <option value="">Nivel de experiencia</option>
             <option value="junior">Junior</option>
@@ -110,10 +152,16 @@ export function Search({ onSearch, onTextFilter, onClearFilter, filters, initial
             <option value="senior">Senior</option>
             <option value="lead">Lead</option>
           </select>
+
           {(filters.technology ||
             filters.location ||
-            filters.experienceLevel) && (            
-            <button onClick={onClearFilter}>Limpiar selectores</button>
+            filters.experienceLevel) && (
+            <button
+              type="button"
+              onClick={onClearFilter}
+            >
+              Limpiar selectores
+            </button>
           )}
         </div>
       </form>

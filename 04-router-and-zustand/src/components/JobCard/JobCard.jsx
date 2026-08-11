@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "../Link";
+import { Link } from "react-router";
 
 import styles from "./JobCard.module.css";
 import { useFavoritesStore } from "../../Store/favoritesStore";
@@ -47,7 +47,7 @@ export function JobCard({ job }) {
 
   return (
     <article
-      className="job-listing-card"
+      className={styles.jobListingCard}
       data-modalidad={job.data.modalidad}
       data-nivel={job.data.nivel}
       data-technology={job.data.technology}

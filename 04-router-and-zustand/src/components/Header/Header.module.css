@@ -1,0 +1,41 @@
+header {
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin: 0 auto; */
+  gap: 40px;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+}
+
+/* Botones del Header */
+/* header div a {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #334155;
+  color: var(--text-primary);
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+} */
+
+active-link {
+    font-weight: blod;
+    text-decoration: none;
+    color: black;
+    border-radius: 4px;    
+    pointer-events: none;
+}
+
+.nav-link-active {
+  color: yellow;
+  pointer-events: none;
+}

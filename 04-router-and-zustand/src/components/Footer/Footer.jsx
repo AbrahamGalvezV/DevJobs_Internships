@@ -1,3 +1,5 @@
+import Link from "./Footer.module.css"
+
 export function Footer() {
   return (
     <footer>

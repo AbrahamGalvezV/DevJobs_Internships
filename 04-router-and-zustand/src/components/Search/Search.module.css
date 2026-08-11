@@ -1,0 +1,42 @@
+.jobsSearch {
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+.jobsSearch h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.jobsSearch p {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.jobsSearch form {
+  width: 100%;
+}
+
+.searchBar {
+  background: var(--input-bg);
+  padding: 0.25rem 0.5rem;
+}
+
+.searchFilters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+}

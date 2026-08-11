@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import { useAuthStore } from "../../Store/authStore";
 import { useFavoritesStore } from "../../Store/favoritesStore";
 
-import "./Header.css";
+import styles from "./Header.module.css"
 
 export function Header() {
   const { isLoggedIn } = useAuthStore();
@@ -12,7 +12,7 @@ export function Header() {
 
   return (
     <>
-      <header>
+      <header className={styles.header}>
         <NavLink to="/" style={{ textDecoration: "none" }}>
           <h1 style={{ color: "white" }}>
             <svg
