@@ -121,6 +121,8 @@ export function Search({
           <select
             name={idTechnology}
             id="filter-technology"
+            value={filters.technology}
+            onChange={handleSubmit}
           >
             <option value="">Tecnología</option>
             <option value="javascript">JavaScript</option>
@@ -133,6 +135,8 @@ export function Search({
           <select
             name={idLocation}
             id="filter-location"
+            value={filters.location}
+            onChange={handleSearch}
           >
             <option value="">Ubicación</option>
             <option value="remoto">Remoto</option>
@@ -145,6 +149,8 @@ export function Search({
           <select
             name={idExperienceLevel}
             id="experience-level"
+            value={filters.experienceLevel}
+            onClick={handleSearch}
           >
             <option value="">Nivel de experiencia</option>
             <option value="junior">Junior</option>
