@@ -80,61 +80,6 @@ nav {
   }
 }
 
-
-
-/* Hero */
-main>section:nth-child(1) {
-  height: 300px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  h1 {
-    padding-top: 36px;
-  }
-
-  &>img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    mask-image: linear-gradient(to bottom, rgba(16, 25, 34, 1) 5%, rgba(16, 25, 34, 0) 80%);
-  }
-}
-
-/* Formulario de Búsqueda */
-form {
-  max-width: 45rem;
-  width: 100%;
-  margin: 0 auto;
-  padding-inline: 1rem;
-}
-
-form>div {
-  display: flex;
-  align-items: center;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  gap: 0.5rem;
-}
-
-form span {
-  padding-left: 0.75rem;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-form input[type="text"]::placeholder {
-  color: #64748b;
-}
-
 /* Botones */
 
 button {
@@ -151,9 +96,8 @@ button {
   white-space: nowrap;
 
   &:hover,
-  /* pseudo-clase que significa que el ratón está encima */
+
   &:focus {
-    /* pseudo-clase que significa que el elemento tiene el foco */
     background-color: var(--primary-hover);
     outline: 2px solid white;
     outline-offset: 2px;
@@ -316,7 +260,7 @@ select {
 
 }
 
-h3>a {
+h3>a { 
   text-decoration: none;
   color: #cbd5e1;
 

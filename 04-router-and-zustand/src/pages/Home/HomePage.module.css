@@ -1,0 +1,249 @@
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(16, 25, 34, 1) 5%,
+    rgba(16, 25, 34, 0) 100%
+  );
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 24, 42, 0.35);
+  z-index: -1;
+}
+
+.heroContent {
+  width: 100%;
+  max-width: 1280px;
+}
+
+
+/* ==============================
+   ESTILOS GENERALES DE SECCIÓN
+   ============================== */
+
+.sectionHeader {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.sectionHeader p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+
+/* ==============================
+   POR QUÉ DEVJOBS
+   ============================== */
+
+.whyDevjobs {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.featureCard {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-light);
+}
+
+.featureIcon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(0, 153, 255, 0.15);
+  font-size: 1.75rem;
+}
+
+.featureCard h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.featureCard p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+
+/* ==============================
+   CÓMO FUNCIONA
+   ============================== */
+
+.howItWorks {
+  width: 100%;
+  padding: 5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.steps {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.step {
+  text-align: center;
+  padding: 1rem;
+}
+
+.step span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  margin: 0 auto 1rem;
+
+  border-radius: 50%;
+
+  background-color: var(--primary);
+  color: var(--text-primary);
+
+  font-weight: 700;
+}
+
+.step h3 {
+  margin-bottom: 0.75rem;
+}
+
+.step p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+
+/* ==============================
+   CALL TO ACTION
+   ============================== */
+
+.cta {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+
+  border-radius: 0.5rem;
+
+  background-color: var(--primary-light);
+  color: white;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.ctaButton:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 400px;
+    padding: 2rem 1rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.75rem;
+  }
+
+  .cta h2 {
+    font-size: 1.75rem;
+  }
+}

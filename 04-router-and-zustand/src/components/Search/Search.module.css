@@ -1,7 +1,9 @@
 .jobsSearch {
-  margin: 0;
-  padding: 0;
-  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .jobsSearch h1 {
@@ -17,21 +19,23 @@
 
 .jobsSearch form {
   width: 100%;
+  max-width: 45rem;
+  padding: 0 1rem;
 }
 
 .searchBar {
-  background: var(--input-bg);
-  padding: 0.25rem 0.5rem;
-}
-
-.searchFilters {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+  align-items: center;
+  width: 100%;
+  background: var(--input-bg);
+  padding: 5px 10px 5px 15px;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
 }
 
 .searchInput {
   flex: 1;
+  min-width: 0;
   background: transparent;
   border: none;
   outline: none;
@@ -39,4 +43,14 @@
   padding: 0.75rem 0.5rem;
   font-size: 1rem;
   font-family: inherit;
+}
+
+.searchFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.jobsSearch_h1 {
+  padding-top: 36px;
 }

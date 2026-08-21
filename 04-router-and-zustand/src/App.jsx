@@ -4,14 +4,14 @@ import { lazy, Suspense} from "react";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
-import RegisterPage from "./pages/Contacto";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/Login/LoginPage";
+import Contact from "./pages/Contact/ContactPage"
 
-const HomePage = lazy(() => import("./pages/HomePage"));
+const HomePage = lazy(() => import("./pages/Home/HomePage"));
 const SearchPage = lazy(() => import("./pages/SearchPage"));
-const Contacto = lazy(() => import("./pages/Contacto"));
-const JobDetail = lazy(() => import("./pages/Detail"));
-const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+const ContactPage = lazy(() => import("./pages/Contact/ContactPage"));
+const JobDetail = lazy(() => import("./pages/Detail/Detail"));
+const ProfilePage = lazy(() => import("./pages/Profile/ProfilePage"));
 const NotFoundPage = lazy(() => import("./pages/404"));
 
 function App() {
@@ -31,8 +31,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/regirser" element={<RegisterPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/regirser" element={<LoginPage />} />
           <Route path="/jobs/:jobId" element={<JobDetail />} />
           <Route path="/profile" element={
             <ProtectedRoute >

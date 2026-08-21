@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { Link } from "../components/Link";
+import { Link } from "../../components/Link";
 
 import styles from "./detail.module.css";
 import snarkdown from "snarkdown";
-import { useAuthStore } from "../Store/authStore";
-import { useFavoritesStore } from "../Store/favoritesStore";
+import { useAuthStore } from "../../Store/authStore";
+import { useFavoritesStore } from "../../Store/favoritesStore";
 
 function JobSelection({ title, content }) {
   const html = snarkdown(content);

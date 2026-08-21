@@ -1,4 +1,4 @@
-import { useAuthStore } from '../Store/authStore' 
+import { useAuthStore } from '../../Store/authStore' 
 import styles from './ProfilePage.module.css'
 
 export default function Profile() {

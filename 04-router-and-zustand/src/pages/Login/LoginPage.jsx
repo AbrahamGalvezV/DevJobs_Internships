@@ -1,8 +1,8 @@
 import { useId } from 'react'
 import { useNavigate } from 'react-router'
-import { useAuthStore } from '../Store/authStore' 
+import { useAuthStore } from '../../Store/authStore' 
 
-import styles from './Auth.module.css'
+import styles from './LoginPage.module.css'
 
 export default function LoginPage() {
   const nameId = useId()

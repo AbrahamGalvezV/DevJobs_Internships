@@ -51,7 +51,7 @@ export function Search({
 
   return (
     <section className={styles.jobsSearch}>
-      <h1>Encuentra tu próximo trabajo</h1>
+      <h1 className={styles.jobsSearch_h1}>Encuentra tu próximo trabajo</h1>
 
       <p>
         Explora miles de oportunidades en el sector tecnológico
@@ -135,7 +135,7 @@ export function Search({
           <select
             name={idLocation}
             id="filter-location"
-            value={filters.location}
+            value={filters.location} 
             onChange={handleSearch}
           >
             <option value="">Ubicación</option>
