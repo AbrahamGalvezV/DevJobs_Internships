@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import { useNavigate } from 'react-router'
 import { useAuthStore } from '../../Store/authStore' 
+import { Link } from 'react-router'
 
 import styles from './LoginPage.module.css'
 
@@ -37,7 +38,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
-            <label htmlFor="name" className={styles.label}>
+            <label htmlFor="nameId" className={styles.label}>
               Nombre completo
             </label>
             <input
@@ -64,7 +65,7 @@ export default function LoginPage() {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="password" className={styles.label}>
+            <label htmlFor="passwordId" className={styles.label}>
               Contraseña
             </label>
             <input
@@ -84,9 +85,9 @@ export default function LoginPage() {
 
         <p className={styles.footer}>
           ¿Ya tienes cuenta?{' '}
-          <a href="/login" className={styles.link}>
+          <Link to="/login" className={styles.link}>
             Inicia sesión aquí
-          </a>
+          </Link> 
         </p>
       </div>
     </div>

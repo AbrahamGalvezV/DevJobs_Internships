@@ -1,4 +1,3 @@
-
 import { useId, useState } from "react";
 import { useSearchForm } from "../Hooks/useSearchForm";
 import { useNavigate } from "react-router";
@@ -11,6 +10,7 @@ export function Search({
   filters,
   initialText,
   showSearchButton = false,
+  showFilters = true,
 }) {
   const idText = useId();
   const idTechnology = useId();
@@ -53,9 +53,7 @@ export function Search({
     <section className={styles.jobsSearch}>
       <h1 className={styles.jobsSearch_h1}>Encuentra tu próximo trabajo</h1>
 
-      <p>
-        Explora miles de oportunidades en el sector tecnológico
-      </p>
+      <p>Explora miles de oportunidades en el sector tecnológico</p>
 
       <form
         onChange={handleSubmit}
@@ -75,11 +73,7 @@ export function Search({
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path
-              stroke="none"
-              d="M0 0h24v24H0z"
-              fill="none"
-            />
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 0 0 -14 0" />
             <path d="M21 21l-6 -6" />
           </svg>
@@ -98,10 +92,7 @@ export function Search({
           />
 
           {showSearchButton && searchTerm.trim() && (
-            <button
-              type="submit"
-              className={styles.searchButton}
-            >
+            <button type="submit" className={styles.searchButton}>
               Buscar
             </button>
           )}
@@ -117,59 +108,58 @@ export function Search({
           )}
         </div>
 
-        <div className={styles.searchFilters}>
-          <select
-            name={idTechnology}
-            id="filter-technology"
-            value={filters.technology}
-            onChange={handleSubmit}
-          >
-            <option value="">Tecnología</option>
-            <option value="javascript">JavaScript</option>
-            <option value="python">Python</option>
-            <option value="react">React</option>
-            <option value="node">Node</option>
-            <option value="java">Java</option>
-          </select>
-
-          <select
-            name={idLocation}
-            id="filter-location"
-            value={filters.location} 
-            onChange={handleSearch}
-          >
-            <option value="">Ubicación</option>
-            <option value="remoto">Remoto</option>
-            <option value="cdmx">Ciudad de México</option>
-            <option value="guadalajara">Guadalajara</option>
-            <option value="monterrey">Monterrey</option>
-            <option value="madrid">Madrid</option>
-          </select>
-
-          <select
-            name={idExperienceLevel}
-            id="experience-level"
-            value={filters.experienceLevel}
-            onClick={handleSearch}
-          >
-            <option value="">Nivel de experiencia</option>
-            <option value="junior">Junior</option>
-            <option value="mid">Mid-level</option>
-            <option value="senior">Senior</option>
-            <option value="lead">Lead</option>
-          </select>
-
-          {(filters.technology ||
-            filters.location ||
-            filters.experienceLevel) && (
-            <button
-              type="button"
-              onClick={onClearFilter}
+        {showFilters && (
+          <div className={styles.searchFilters}>
+            <select
+              name={idTechnology}
+              id="filter-technology"
+              value={filters.technology}
+              onChange={handleSubmit}
             >
-              Limpiar selectores
-            </button>
-          )}
-        </div>
+              <option value="">Tecnología</option>
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="react">React</option>
+              <option value="node">Node</option>
+              <option value="java">Java</option>
+            </select>
+
+            <select
+              name={idLocation}
+              id="filter-location"
+              value={filters.location}
+              onChange={handleSearch}
+            >
+              <option value="">Ubicación</option>
+              <option value="remoto">Remoto</option>
+              <option value="cdmx">Ciudad de México</option>
+              <option value="guadalajara">Guadalajara</option>
+              <option value="monterrey">Monterrey</option>
+              <option value="madrid">Madrid</option>
+            </select>
+
+            <select
+              name={idExperienceLevel}
+              id="experience-level"
+              value={filters.experienceLevel}
+              onClick={handleSearch}
+            >
+              <option value="">Nivel de experiencia</option>
+              <option value="junior">Junior</option>
+              <option value="mid">Mid-level</option>
+              <option value="senior">Senior</option>
+              <option value="lead">Lead</option>
+            </select>
+
+            {(filters.technology ||
+              filters.location ||
+              filters.experienceLevel) && (
+              <button type="button" onClick={onClearFilter}>
+                Limpiar selectores
+              </button>
+            )}
+          </div>
+        )}
       </form>
     </section>
   );

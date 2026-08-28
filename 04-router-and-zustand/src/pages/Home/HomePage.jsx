@@ -27,6 +27,7 @@ export default function HomePage() {
             onClearFilter={handleClearFilter}
             filters={filters}
             showSearchButton={true}
+            showFilters={false}
           />
         </div>
       </section>

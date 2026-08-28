@@ -37,6 +37,7 @@ export default function SearchPage() {
         onTextFilter={handleTextFilter}
         onClearFilter={handleClearFilter}
         filters={filters}
+        showFilters={true}
       />
 
       <section>
