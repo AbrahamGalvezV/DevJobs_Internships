@@ -66,7 +66,7 @@ function DetailPageHandle({ job }) {
             {job.empresa} · {job.ubicacion}
           </p>
         </div>
-        <div className="styles.applyButton">
+        <div className={styles.actions}>
           <DetailApplyButton />
           <DetailFavoriteButton jobId={job.id} />
         </div>

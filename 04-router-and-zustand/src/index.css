@@ -21,12 +21,33 @@
 }
 
 @font-face {
-  font-family: 'Inter Variable';
+  font-family: "Inter Variable";
   font-style: normal;
   font-display: swap;
   font-weight: 100 900;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2")
+    format("woff2-variations");
+
+  unicode-range:
+    U+0000-00FF,
+    U+0131,
+    U+0152-0153,
+    U+02BB-02BC,
+    U+02C6,
+    U+02DA,
+    U+02DC,
+    U+0304,
+    U+0308,
+    U+0329,
+    U+2000-206F,
+    U+20AC,
+    U+2122,
+    U+2191,
+    U+2193,
+    U+2212,
+    U+2215,
+    U+FEFF,
+    U+FFFD;
 }
 
 body {
@@ -40,43 +61,45 @@ body {
 }
 
 /* Títulos principales */
+
 h1 {
   font-size: 1.5rem;
   line-height: 1.2;
   text-wrap: balance;
   align-items: center;
   gap: 0.5rem;
-
-  svg {
-    width: 2rem;
-    height: 2rem;
-    color: var(--primary-light);
-  }
 }
 
-h1+p {
+h1 svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-light);
+}
+
+h1 + p {
   text-wrap: balance;
-  margin-bottom: 2rem
+  margin-bottom: 2rem;
 }
 
 /* Navegación del header a otras páginas */
+
 nav {
   align-items: center;
   gap: 1rem;
   display: flex;
+}
 
-  a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    transition: color 0.2s;
-    font-weight: 500;
+nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  font-weight: 500;
+}
 
-    &:hover,
-    &:focus {
-      color: var(--primary);
-      outline: none;
-    }
-  }
+nav a:hover,
+nav a:focus {
+  color: var(--primary);
+  outline: none;
 }
 
 /* Botones */
@@ -93,61 +116,61 @@ button {
   font-family: inherit;
   font-size: 1rem;
   white-space: nowrap;
+}
 
-  &:hover,
+button:hover,
+button:focus {
+  background-color: var(--primary-hover);
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
 
-  &:focus {
-    background-color: var(--primary-hover);
-    outline: 2px solid white;
-    outline-offset: 2px;
-  }
+button:active {
+  transform: scale(0.9);
+}
 
-  &:active {
-    transform: scale(0.90)
-  }
-
-  &:disabled {
-    opacity: .5;
-    cursor: not-allowed;
-  }
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Features Section */
-main>section:nth-child(2) {
+
+main > section:nth-child(2) {
   padding-inline: 1rem;
   background-color: var(--background);
   padding-top: 2rem;
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-
-  &>header {
-    gap: 2px;
-    flex-direction: column;
-
-    h2 {
-      margin-bottom: 0;
-    }
-
-    p {
-      opacity: .75;
-    }
-  }
-
-  &>div {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
 }
 
-main>section:nth-child(2) h2 {
+main > section:nth-child(2) > header {
+  gap: 2px;
+  flex-direction: column;
+}
+
+main > section:nth-child(2) > header h2 {
+  margin-bottom: 0;
+}
+
+main > section:nth-child(2) > header p {
+  opacity: 0.75;
+}
+
+main > section:nth-child(2) > div {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+main > section:nth-child(2) h2 {
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
-main>section:nth-child(2)>div>div:first-child>p {
+main > section:nth-child(2) > div > div:first-child > p {
   font-size: 1.125rem;
   color: var(--text-muted);
   max-width: 42rem;
@@ -155,45 +178,20 @@ main>section:nth-child(2)>div>div:first-child>p {
 }
 
 /* Grid de Features */
-main>section:nth-child(2) footer {
+
+main > section:nth-child(2) footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px
+  gap: 16px;
 }
 
-@media (width >=640px) {
-  main>section:nth-child(2) footer {
+@media (width >= 640px) {
+  main > section:nth-child(2) footer {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 /* Feature Cards */
-/* article {
-  background-color: var(--card-bg);
-  padding: 2rem;
-  margin-bottom: 16px;
-  border-radius: 0.5rem;                   
-  box-shadow: 0px 1px 3px 0 var(--shadow); 
-
-  svg {
-    color: var(--primary-light);          
-    background: rgba(0, 153, 255, 0.3);  
-    border-radius: 9999px;               
-    width: 64px;                         
-    height: 64px;                        
-    padding: 16px;                       
-  }
-
-  h3 {
-    font-weight: 500;
-  }
-
-  p {
-    color: var(--text-muted);
-  }
-} */
-
-
 
 article {
   background-color: var(--card-bg);
@@ -201,26 +199,26 @@ article {
   margin-bottom: 16px;
   border-radius: 0.5rem;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
-
-  svg {
-    color: var(--primary-light);
-    background: rgba(0, 153, 255, .3);
-    width: 64px;
-    height: 64px;
-    border-radius: 100%;
-    padding: 16px;
-  }
-
-  p {
-    color: var(--text-muted);
-  }
-
-  h3 {
-    font-weight: 500;
-  }
 }
 
+article svg {
+  color: var(--primary-light);
+  background: rgba(0, 153, 255, 0.3);
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  padding: 16px;
+}
 
+article p {
+  color: var(--text-muted);
+}
+
+article h3 {
+  font-weight: 500;
+}
+
+/* Selectores */
 
 select {
   padding: 0.625rem 1.25rem;
@@ -230,142 +228,51 @@ select {
   font-size: 0.875rem;
   color: #ddd;
   cursor: pointer;
-  transition: all 0.25;
+  transition: all 0.25s;
   appearance: none;
+
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+
   background-repeat: no-repeat;
   background-position: right 0.5rem center;
+
   padding-right: 2.5rem;
-
-  &:hover {
-    background-color: var(--primary-hover);
-    color: white;
-  }
-
-  &:focus {
-    outline: 2px solid #1173d4;
-    outline-offset: 2px;
-  }
 }
+
+select:hover {
+  background-color: var(--primary-hover);
+  color: white;
+}
+
+select:focus {
+  outline: 2px solid #1173d4;
+  outline-offset: 2px;
+}
+
+/* Botón aplicar de las tarjetas */
 
 .button-apply-job {
   background-color: #09f;
-
-  &.is-applied {
-    background-color: #33f139;
-    color: black;
-    pointer-events: none;
-  }
-
 }
 
-h3>a { 
+.button-apply-job.is-applied {
+  background-color: #33f139;
+  color: black;
+  pointer-events: none;
+}
+
+/* Enlaces de títulos de ofertas */
+
+h3 > a {
   text-decoration: none;
   color: #cbd5e1;
-
-  &a:hover {
-    text-decoration: none;
-  }
-
 }
 
-.section-what-job {
-  width: 800px;
-  margin: 0 auto;
-  padding: 50px;
-
+h3 > a:hover {
+  text-decoration: none;
 }
 
-.text-job {
-  text-align: left;
-}
-
-.article-job {
-  background-color: #005cf1f3;
-  padding: 25px;
-}
-
-.header-article-job {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.content-wath-job {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.what-job-btn {
-  width: 100px;
-  justify-content: flex-end;
-}
-
-
-.prose {
-  line-height: 1.75;
-}
-
-.prose ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin: 1rem 0;
-}
-
-.prose li {
-  margin: 0.5rem 0;
-}
-
-.prose p {
-  margin: 1rem 0;
-}
-
-.prose strong {
-  font-weight: 600;
-  color: #fff;
-}
-
-.prose em {
-  font-style: italic;
-}
-
-.prose code {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.2rem 0.4rem;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
-}
-
-.prose ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.prose ul li {
-  position: relative;
-  padding-left: 28px;
-}
-
-.prose ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 4px;
-
-  width: 20px;
-  height: 20px;
-
-  background-color: var(--primary-light);
-
-  -webkit-mask: url("/icons/check.svg") no-repeat center;
-  mask: url("/icons/check.svg") no-repeat center;
-
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
+/* Enlace activo */
 
 .nav-link-active {
   color: yellow;
