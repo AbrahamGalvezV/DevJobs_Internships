@@ -1,4 +1,4 @@
-![image](./src/assets/portada.png)
+<img src="./src/assets/portada.png" alt="Portada del proyecto" width="100%">
 # 💼 DevJobs
 
 DevJobs es una aplicación web para buscar y consultar ofertas de empleo relacionadas con el sector tecnológico.
