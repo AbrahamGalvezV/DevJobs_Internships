@@ -1,0 +1,1 @@
+import{j as e}from"./index-CGuSV9Ns.js";function o(){return e.jsxs(e.Fragment,{children:[e.jsx("h1",{children:"Código de error 404 página no encontrada"}),e.jsx("p",{children:"Lo sentimos, la página que buscas no existe"})]})}export{o as default};
