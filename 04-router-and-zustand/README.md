@@ -1,3 +1,4 @@
+![image](./src/assets/portada.png)
 # 💼 DevJobs
 
 DevJobs es una aplicación web para buscar y consultar ofertas de empleo relacionadas con el sector tecnológico.
